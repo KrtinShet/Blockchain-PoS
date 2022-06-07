@@ -17,6 +17,12 @@ const GENESIS_DATA = {
   data: [],
 };
 
+const TRANSACTION_TYPE = {
+  TRANSACTION: "TRANSACTION",
+  STAKE: "STAKE",
+  VALIDATOR_FEE: "VALIDATOR_FEE",
+};
+
 module.exports = {
   TOTAL_COINS,
   TRANSACTION_THRESHOLD,
@@ -25,4 +31,5 @@ module.exports = {
   SECRET,
   TRANSACTION_FEE,
   INITIAL_BALANCE,
+  TRANSACTION_TYPE,
 };

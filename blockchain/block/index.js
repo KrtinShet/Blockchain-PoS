@@ -1,15 +1,16 @@
 const { GENESIS_DATA } = require("./../../config");
-const { cryptoHash } = require("./../../utils");
+const { cryptoHash, verifySignature, sha256 } = require("./../../utils");
 
 class Block {
   constructor({ timestamp, lastHash, hash, data, validator, signature }) {
     this.timestamp = timestamp;
     this.lastHash = lastHash;
     this.hash = hash;
-    this.data = data;
+    this.data = data || [];
     this.validator = validator;
     this.signature = signature;
   }
+  
   toString() {
     return ` Block:
         TimeStamp: ${this.timestamp}
@@ -20,6 +21,7 @@ class Block {
         Signature: ${this.signature}
       `;
   }
+
   static genesis() {
     return new this({
       timestamp: GENESIS_DATA.timestamp,
@@ -51,6 +53,18 @@ class Block {
 
   static signBlockHash(hash, wallet) {
     return wallet.sign(hash);
+  }
+
+  static verifyBlock(block) {
+    return verifySignature(
+      block.validator,
+      block.signature,
+      sha256(block.data)
+    );
+  }
+
+  static verifyleader(block, leader) {
+    return block.validator == leader ? true : false;
   }
 }
 

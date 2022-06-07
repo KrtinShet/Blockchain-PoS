@@ -1,5 +1,5 @@
 const Block = require("./index");
-const cryptoHash = require("./../../utils/cryptoHash");
+const { cryptoHash } = require("./../../utils");
 const { GENESIS_DATA } = require("./../../config");
 
 describe("Block", () => {
