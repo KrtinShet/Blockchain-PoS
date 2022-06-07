@@ -22,6 +22,14 @@ class BlockChain {
     }
     return true;
   }
+
+  replaceChain(chain, validateTransactions, onSuccess) {
+    if (chain.length <= this.chain.length) return;
+    if (!BlockChain.isValidChain(chain)) return;
+    if (validateTransactions && !this.isValidTransaction({ chain })) return;
+    if (onSuccess) onSuccess();
+    this.chain = chain;
+  }
 }
 
 module.exports = BlockChain;
