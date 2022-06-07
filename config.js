@@ -1,0 +1,28 @@
+const TOTAL_COINS = 1000;
+
+const INITIAL_BALANCE = 100;
+
+const TRANSACTION_THRESHOLD = 10;
+
+const FIRST_LEADER = "";
+
+const TRANSACTION_FEE = 1;
+
+const SECRET = "0x1f50e3c4a5e0b";
+
+const GENESIS_DATA = {
+  timestamp: "Genesis-timestamp",
+  lastHash: "d06938b646bdd181ea2d413f65d130d207a8a1c77f62492f24b0038e4590353f",
+  hash: "f50e09b775e504169e9afcbe2e0645228349b001bfe891e123a3fd0fcd29573b",
+  data: [],
+};
+
+module.exports = {
+  TOTAL_COINS,
+  TRANSACTION_THRESHOLD,
+  FIRST_LEADER,
+  GENESIS_DATA,
+  SECRET,
+  TRANSACTION_FEE,
+  INITIAL_BALANCE,
+};
